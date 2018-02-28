@@ -1,4 +1,4 @@
-# Meteo Station
+# Meteo Station [![Build Status](https://travis-ci.org/bartek56/MeteoStation_Wifi.svg?branch=master)](https://travis-ci.org/bartek56/MeteoStation_Wifi)
 The purpose of the project was to design and create weather station which read out the actual temperature, humidity, pressure, wind direction and speed.
 The project consists of:
 - Atmega32,

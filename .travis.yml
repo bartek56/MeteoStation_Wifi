@@ -7,15 +7,15 @@ install:
 
 script:
 - cd MeteoStation_Atmega32_Wifi
-- avr-gcc -w -O0 -mmcu=atmega32 -DF_CPU=12000000UL -c -o ADC.o ADC.c
-- avr-gcc -w -O0 -mmcu=atmega32 -DF_CPU=12000000UL -c -o BMP085.o BMP085.c
-- avr-gcc -w -O0 -mmcu=atmega32 -DF_CPU=12000000UL -c -o DHT11.o DHT11.c
-- avr-gcc -w -O0 -mmcu=atmega32 -DF_CPU=12000000UL -c -o DS3231.o DS3231.c
-- avr-gcc -w -O0 -mmcu=atmega32 -DF_CPU=12000000UL -c -o UART.o UART.c
-- avr-gcc -w -O0 -mmcu=atmega32 -DF_CPU=12000000UL -c -o Wireless.o Wireless.c
-- avr-gcc -w -O0 -mmcu=atmega32 -DF_CPU=12000000UL -c -o ds18b20.o ds18b20.c
-- avr-gcc -w -O0 -mmcu=atmega32 -DF_CPU=12000000UL -c -o i2c_twi.o i2c_twi.c
-- avr-gcc -w -O0 -mmcu=atmega32 -DF_CPU=12000000UL -c -o lcd44780.o lcd44780.c
-- avr-gcc -w -O0 -mmcu=atmega32 -DF_CPU=12000000UL -c -o main.o main.c
+- avr-gcc -w -O0 -std=c99 -mmcu=atmega32 -DF_CPU=12000000UL -c -o ADC.o ADC.c
+- avr-gcc -w -O0 -std=c99 -mmcu=atmega32 -DF_CPU=12000000UL -c -o BMP085.o BMP085.c
+- avr-gcc -w -O0 -std=c99 -mmcu=atmega32 -DF_CPU=12000000UL -c -o DHT11.o DHT11.c
+- avr-gcc -w -O0 -std=c99 -mmcu=atmega32 -DF_CPU=12000000UL -c -o DS3231.o DS3231.c
+- avr-gcc -w -O0 -std=c99 -mmcu=atmega32 -DF_CPU=12000000UL -c -o UART.o UART.c
+- avr-gcc -w -O0 -std=c99 -mmcu=atmega32 -DF_CPU=12000000UL -c -o Wireless.o Wireless.c
+- avr-gcc -w -O0 -std=c99 -mmcu=atmega32 -DF_CPU=12000000UL -c -o ds18b20.o ds18b20.c
+- avr-gcc -w -O0 -std=c99 -mmcu=atmega32 -DF_CPU=12000000UL -c -o i2c_twi.o i2c_twi.c
+- avr-gcc -w -O0 -std=c99 -mmcu=atmega32 -DF_CPU=12000000UL -c -o lcd44780.o lcd44780.c
+- avr-gcc -w -O0 -std=c99 -mmcu=atmega32 -DF_CPU=12000000UL -c -o main.o main.c
 - avr-gcc -w -mmcu=atmega32 ADC.o BMP085.o DHT11.o DS3231.o UART.o Wireless.o ds18b20.o i2c_twi.o lcd44780.o main.o -o main
 - avr-objcopy -O ihex -R .eeprom main prog.hex

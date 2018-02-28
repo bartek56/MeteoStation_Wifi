@@ -1,17 +1,17 @@
 # Meteo Station
 The purpose of the project was to design and create weather station which read out the actual temperature, humidity, pressure, wind direction and speed.
 The project consists of:
-- Atmega32
-- temperature sensors DS18b20
-- humidity sensor DHT11
-- pressure sensor BMP085
-- LCD display HD44780
-- RTC DS3231
-- Wifi module ESP8266
-- fotoresistor
-- rain sensor YL-83 
-- anemometer for N25FR
-- wind direction sensor for N96FY/N96GY
+- Atmega32,
+- temperature sensors DS18b20,
+- humidity sensor DHT11,
+- pressure sensor BMP085,
+- LCD display HD44780,
+- RTC DS3231,
+- Wifi module ESP8266,
+- fotoresistor,
+- rain sensor YL-83 ,
+- anemometer for N25FR,
+- wind direction sensor for N96FY/N96GY,
 - buttons
 
 

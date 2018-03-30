@@ -29,6 +29,7 @@ int DecToBcd(uint8_t dec);
 int BcdToDec(uint8_t bcd);
 void ShowClock();
 void SetClock(uint8_t godz, uint8_t min, uint8_t sek);
+void SetClockOnlyHour(uint8_t hr);
 void SetDate(uint8_t weekDay, uint8_t day, uint8_t month, uint8_t year);
 void ShowDate();
 

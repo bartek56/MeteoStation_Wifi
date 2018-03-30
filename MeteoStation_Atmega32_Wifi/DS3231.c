@@ -82,8 +82,14 @@ void SetClock(uint8_t hr, uint8_t min, uint8_t sec)
 {
 	buforI2C[0] = DecToBcd(sec);	// seconds
 	buforI2C[1] = DecToBcd(min);	// minutes
-	buforI2C[2] = DecToBcd(hr);	// hours
-	I2CWriteBuf( DS3231_ADDR, 0x00, 3, buforI2C );
+	buforI2C[0] = DecToBcd(hr);	// hours
+	I2CWriteBuf( DS3231_ADDR, 0x02, 1, buforI2C );
+}
+
+void SetClockOnlyHour(uint8_t hr)
+{
+	buforI2C[0] = DecToBcd(hr);		// hours
+	I2CWriteBuf( DS3231_ADDR, 0x02, 1, buforI2C );
 }
 
 void SetDate(uint8_t weekDay, uint8_t day, uint8_t month, uint8_t year)
@@ -117,38 +123,21 @@ void checkClock()
 	
 	if(wirelessReady==1)
 	{
-		/*
-		if(minutes%3==2 && seconds==58)
+		if(minutes%28==27 && seconds==58)
 		{
 			newEvent("WIFIWEB");
 		}
-		else if(minutes%3==0 && seconds==00)
+		else if(minutes%28==0 && seconds==00)
 		{
 			newEvent("WIFIGETTEMP");
 		}
-		else if(minutes%3==0 && seconds==58)
-		{
-			newEvent("WIFIWEB");
-		}
-		else if(minutes%3==1 && seconds==00)
-		{
-			newEvent("WIFIGETOTHER");
-		}
-		*/
 		
-		if(minutes%30==29 && seconds==58)
+		
+		else if(minutes%28==00 && seconds==58)
 		{
 			newEvent("WIFIWEB");
 		}
-		else if(minutes%30==0 && seconds==00)
-		{
-			newEvent("WIFIGETTEMP");
-		}
-		else if(minutes%30==0 && seconds==58)
-		{
-			newEvent("WIFIWEB");	
-		}
-		else if(minutes%30==1 && seconds==00)
+		else if(minutes%28==1 && seconds==00)
 		{
 			newEvent("WIFIGETOTHER");
 		}

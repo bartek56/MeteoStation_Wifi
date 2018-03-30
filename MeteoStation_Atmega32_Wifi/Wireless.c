@@ -15,10 +15,18 @@
 
 
 char CLIENTMODE[]="AT+CWMODE=1\r\n";
-char CONNECTWITHNETWORK[]="AT+CWJAP=\"TP-LINK\",\"pizda204\"\r\n";
+//char CONNECTWITHNETWORK[]="AT+CWJAP=\"TP-LINK\",\"pizda204\"\r\n";
 char CONNECTWITHSERVER[] = "AT+CIPSTART=\"TCP\",\"meteostation.y0.pl\",80\r\n";
 char CHECKSTATUS[]="AT+CIPSTATUS\r\n";
 
+void ConnectToNewNetwork(char* name, char* password)
+{
+	char connectWithNewNenworkCommend[80];
+	sprintf(connectWithNewNenworkCommend,"AT+CWJAP=\"%s\",\"%s\"\r\n", name,password );
+	_delay_ms(100);
+	Send(connectWithNewNenworkCommend);
+	_delay_ms(300);
+}
 
 int CountMark(char *HTTP)
 {

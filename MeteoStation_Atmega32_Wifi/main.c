@@ -64,8 +64,7 @@ int main(void)
 	checkTemp();
 	
 	sprintf(light, "%s", Light());
-	//SetClock(21,8,00);
-	//SetDate(6,8,4,17);
+	//SetClockOnlyHour(18);
 	lcd_cls();
 	lcd_locate(5,1);
 	lcd_str(light);
@@ -136,6 +135,7 @@ int main(void)
 		showMessageLcd=0;
 		
 		lcd_locate(3,1);
+		sprintf(light, "%s", Light());
 		lcd_str(light);
 		lcd_locate(4,2);
 		lcd_str("Meteo Station");
@@ -267,102 +267,7 @@ int main(void)
 	{
 		_delay_ms(100); // take all characters with USART
 		bufferReceiveIndex = 0;
-		/*
-		wait=-1;
-		if(showMessageLcd==0)
-		{
-			lcd_cls();
-		}
-		
-		showMessageLcd=1;
-		lcd_locate(0,0);
-		lcd_char(bufferReceive[0]);
-		lcd_char(bufferReceive[1]);
-		lcd_char(bufferReceive[2]);
-		lcd_char(bufferReceive[3]);
-		lcd_char(bufferReceive[4]);
-		lcd_char(bufferReceive[5]);
-		lcd_char(bufferReceive[6]);
-		lcd_char(bufferReceive[7]);
-		lcd_char(bufferReceive[8]);
-		lcd_char(bufferReceive[9]);
-		lcd_char(bufferReceive[10]);
-		lcd_char(bufferReceive[11]);
-		lcd_char(bufferReceive[12]);
-		lcd_char(bufferReceive[13]);
-		lcd_char(bufferReceive[14]);
-		lcd_char(bufferReceive[15]);
-		lcd_char(bufferReceive[16]);
-		lcd_char(bufferReceive[17]);
-		lcd_char(bufferReceive[18]);
-		lcd_char(bufferReceive[19]);
-		lcd_char(bufferReceive[20]);
-		lcd_locate(0,1);
-		lcd_char(bufferReceive[21]);
-		lcd_char(bufferReceive[22]);
-		lcd_char(bufferReceive[23]);
-		lcd_char(bufferReceive[24]);
-		lcd_char(bufferReceive[25]);
-		lcd_char(bufferReceive[26]);
-		lcd_char(bufferReceive[27]);
-		lcd_char(bufferReceive[28]);
-		lcd_char(bufferReceive[29]);
-		lcd_char(bufferReceive[30]);
-		lcd_char(bufferReceive[31]);
-		lcd_char(bufferReceive[32]);
-		lcd_char(bufferReceive[33]);
-		lcd_char(bufferReceive[34]);
-		lcd_char(bufferReceive[35]);
-		lcd_char(bufferReceive[36]);
-		lcd_char(bufferReceive[37]);
-		lcd_char(bufferReceive[38]);
-		lcd_char(bufferReceive[39]);
-		lcd_char(bufferReceive[40]);
-		lcd_locate(0,2);
-		lcd_char(bufferReceive[41]);
-		lcd_char(bufferReceive[42]);
-		lcd_char(bufferReceive[43]);
-		lcd_char(bufferReceive[44]);
-		lcd_char(bufferReceive[45]);
-		lcd_char(bufferReceive[46]);
-		lcd_char(bufferReceive[47]);
-		lcd_char(bufferReceive[48]);
-		lcd_char(bufferReceive[49]);
-		lcd_char(bufferReceive[50]);
-		lcd_char(bufferReceive[51]);
-		lcd_char(bufferReceive[52]);
-		lcd_char(bufferReceive[53]);
-		lcd_char(bufferReceive[54]);
-		lcd_char(bufferReceive[55]);
-		lcd_char(bufferReceive[56]);
-		lcd_char(bufferReceive[57]);
-		lcd_char(bufferReceive[58]);
-		lcd_char(bufferReceive[59]);
-		lcd_char(bufferReceive[60]);
-		lcd_locate(0,3);
-		lcd_char(bufferReceive[71]);
-		lcd_char(bufferReceive[72]);
-		lcd_char(bufferReceive[73]);
-		lcd_char(bufferReceive[74]);
-		lcd_char(bufferReceive[75]);
-		lcd_char(bufferReceive[76]);
-		lcd_char(bufferReceive[77]);
-		lcd_char(bufferReceive[78]);
-		lcd_char(bufferReceive[79]);
-		lcd_char(bufferReceive[80]);
-		lcd_char(bufferReceive[81]);
-		lcd_char(bufferReceive[82]);
-		lcd_char(bufferReceive[83]);
-		lcd_char(bufferReceive[84]);
-		lcd_char(bufferReceive[85]);
-		lcd_char(bufferReceive[86]);
-		lcd_char(bufferReceive[87]);
-		lcd_char(bufferReceive[88]);
-		lcd_char(bufferReceive[89]);
-		lcd_char(bufferReceive[90]);
-		*/
-		
-		
+				
 		if(bufferReceive[0]=='W' && bufferReceive[1]=='I' && bufferReceive[5]=='G' && bufferReceive[6]=='O' )
 		{
 			wirelessReady=1;
@@ -406,12 +311,16 @@ int main(void)
 		else if(strcmp(lastEvent,"TEMP")==0)
 		{
 			checkTemp();
+			sprintf(light, "%s", Light());
+			lcd_locate(5,1);
+			lcd_str(light);
 		}
 		
 		else if(strcmp(lastEvent,"WIFIWEB")==0)
 		{
 			bufferReceiveIndex = 0;
 			WirelessWebSite();
+			ShowDate();
 		}
 		else if(strcmp(lastEvent,"WIFIGETOTHER")==0)
 		{

@@ -12,6 +12,7 @@
 void WirelessWebSite();
 void WirelessGetTemp(char *temp1,char *temp2,char *temp3, char *temp4, char *temp5);
 void WirelessGetOther(char *pressure, int humidity, int rainFlag, int lightState);
+void ConnectToNewNetwork(char* name, char* password);
 char *CheckStatus();
 uint8_t wirelessReady;
 
